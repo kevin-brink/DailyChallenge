@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Daily_665
+namespace Daily_0665
 {
     public class URLShortener : IDisposable
     {

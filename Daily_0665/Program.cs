@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Daily_665
+namespace Daily_0665
 {
     internal class Program
     {

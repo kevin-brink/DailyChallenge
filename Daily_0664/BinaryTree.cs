@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Daily_664
+namespace Daily_0664
 {
     internal class BinaryTree
     {
@@ -32,7 +32,7 @@ namespace Daily_664
         }
 
         public List<int> Traverse_PreOrder() => Root.Traverse_PreOrder();
-        public List<int> Traverse_InOrder() => Root.Traverse_InOrder(); 
+        public List<int> Traverse_InOrder() => Root.Traverse_InOrder();
         public List<int> Traverse_PostOrder() => Root.Traverse_PostOrder();
 
         public int MaxDepth() => Root.MaxDepth();
@@ -63,7 +63,7 @@ namespace Daily_664
                         Right = new Node(value);
                     else
                         Right.Insert(value);
-                }                
+                }
             }
 
             public List<int> Traverse_PreOrder()

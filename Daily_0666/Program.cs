@@ -1,10 +1,10 @@
-﻿namespace Daily_666
+﻿namespace Daily_0666
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Queue<int> list = new(new List<int>{ 5, 10, 15, 20, 25 });
+            Queue<int> list = new(new List<int> { 5, 10, 15, 20, 25 });
 
             var result = ListMaker(list, new List<int>(), new List<int>());
             var left = result.Item1;
@@ -17,7 +17,7 @@
             Console.ReadLine();
         }
 
-        static Tuple<List<int>,List<int>> ListMaker(Queue<int> arr, List<int> left, List<int> right)
+        static Tuple<List<int>, List<int>> ListMaker(Queue<int> arr, List<int> left, List<int> right)
         {
             if (arr.Count > 0)
             {
@@ -30,7 +30,7 @@
                 if (AbsoluteDifference(toLeft) > AbsoluteDifference(toRight))
                     return toRight;
                 else
-                    return toLeft; 
+                    return toLeft;
             }
             else
                 return new(left, right);

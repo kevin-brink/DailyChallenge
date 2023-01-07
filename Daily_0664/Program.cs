@@ -1,4 +1,4 @@
-﻿namespace Daily_664
+﻿namespace Daily_0664
 {
     internal class Program
     {
