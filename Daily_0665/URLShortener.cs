@@ -20,7 +20,8 @@ namespace Daily_0665
             if (File.Exists(fileName))
             {
                 string json = File.ReadAllText(fileName);
-                urls = JsonConvert.DeserializeObject<List<ShortUrls>>(json);
+
+                urls = JsonConvert.DeserializeObject<List<ShortUrls>>(json) ?? new();
             }
         }
 
@@ -93,7 +94,7 @@ namespace Daily_0665
                 Save();
 
                 // TODO: set large fields to null
-                urls = null;
+                urls.Clear();
 
                 disposedValue = true;
             }

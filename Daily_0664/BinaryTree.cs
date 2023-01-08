@@ -8,7 +8,7 @@ namespace Daily_0664
 {
     internal class BinaryTree
     {
-        private Node Root { get; set; } = null;
+        private Node? Root { get; set; } = null;
 
         private BinaryTree() { }
 
@@ -31,17 +31,17 @@ namespace Daily_0664
                 Root.Insert(value);
         }
 
-        public List<int> Traverse_PreOrder() => Root.Traverse_PreOrder();
-        public List<int> Traverse_InOrder() => Root.Traverse_InOrder();
-        public List<int> Traverse_PostOrder() => Root.Traverse_PostOrder();
+        public List<int> Traverse_PreOrder() => Root?.Traverse_PreOrder() ?? new();
+        public List<int> Traverse_InOrder() => Root?.Traverse_InOrder() ?? new();
+        public List<int> Traverse_PostOrder() => Root?.Traverse_PostOrder() ?? new();
 
-        public int MaxDepth() => Root.MaxDepth();
+        public int MaxDepth() => Root?.MaxDepth() ?? 0;
 
         public class Node
         {
             public int Value { get; private set; }
-            public Node Left { get; set; }
-            public Node Right { get; set; }
+            public Node? Left { get; set; }
+            public Node? Right { get; set; }
 
             public Node(int value)
             {
