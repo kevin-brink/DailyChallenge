@@ -1,4 +1,5 @@
 ﻿using Shared;
+using System.Diagnostics;
 
 namespace Daily_0008
 {
@@ -15,6 +16,7 @@ namespace Daily_0008
             tree.Root.Right.Left.Right = new Node<int>(1);      //  1   1
 
             var count = CountUnival(tree);
+            Debug.Assert(count == 5);
         }
 
         public static int CountUnival<T>(BinaryTree<T> tree) where T :IComparable
