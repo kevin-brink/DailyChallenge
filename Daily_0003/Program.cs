@@ -20,6 +20,7 @@ assert deserialize(serialize(node)).left.left.val == 'left.left'
  */
 
 using Shared;
+using System.Diagnostics;
 
 namespace Daily_0003
 {
@@ -30,7 +31,8 @@ namespace Daily_0003
             var tree = new BinaryTree<int>(new List<int>() { 5, 4, 6, 3, 5, 7, 1, 10 });
             var newTree = BinaryTreeExtender.Deserialize<int>(tree.Serialize());
 
-            var isEqual = BinaryTree<int>.IsEqual(tree, newTree);             
+            var isEqual = BinaryTree<int>.IsEqual(tree, newTree);     
+            Debug.Assert(isEqual);
         }
     }
 }
