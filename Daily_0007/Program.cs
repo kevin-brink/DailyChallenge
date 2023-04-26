@@ -7,31 +7,47 @@ namespace Daily_0007
         static void Main(string[] args)
         {
             var testCode = "111";
-            var count = CountDecodings(testCode);
+            var result = CountDecodings(testCode);
+            var count = result.Count;
             Debug.Assert(count == 3);
 
             testCode = "251812101124";
-            count = CountDecodings(testCode);
+            result = CountDecodings(testCode);
+            count = result.Count;
+            Debug.Assert(count == 40);
+
+            testCode = Code.Encode("kevinbrink");
+            result = CountDecodings(testCode);
+            count = result.Count;
             Debug.Assert(count == 40);
         }
 
-        public static int CountDecodings(string encodedString)
+        public static List<string> CountDecodings(string encodedString)
         {
             if (encodedString.Length == 0)
-                return 1;
+                return new() { "" };
 
-            int possible = 0;
+            List<string> decodedWords = new();
 
             if (encodedString.Length > 0)
             {
                 string word = encodedString[0..1];
                 int code = int.Parse(word);
+                if (code == 0)
+                    return decodedWords;
 
                 if (code >= 1 && code <= 26)
-                    possible += CountDecodings(encodedString[1..]);
+                {
+                    var possibleWords = CountDecodings(encodedString[1..]);
+                    char decode = (char)(code + 'a' - 1);
 
-                if (code == 0)
-                    return 0;
+                    for (int index = 0; index < possibleWords.Count; ++index)
+                    {
+                        possibleWords[index] = decode + possibleWords[index];
+                    }
+
+                    decodedWords.AddRange(possibleWords);
+                }
             }
 
             if (encodedString.Length > 1)
@@ -40,10 +56,20 @@ namespace Daily_0007
                 int code = int.Parse(word);
 
                 if (code >= 1 && code <= 26)
-                    possible += CountDecodings(encodedString[2..]);                
+                {
+                    var possibleWords = CountDecodings(encodedString[2..]);
+                    char decode = (char)(code + 'a' - 1);
+
+                    for (int index = 0; index < possibleWords.Count; ++index)
+                    {
+                        possibleWords[index] = decode + possibleWords[index];
+                    }
+
+                    decodedWords.AddRange(possibleWords);
+                }
             }
 
-            return possible;
+            return decodedWords;
         }
     }
 }

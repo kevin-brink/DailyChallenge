@@ -16,7 +16,7 @@ namespace Daily_0007
             string encodedString = "";
             foreach (char c in plainString.ToLower())
             {
-                encodedString += ((int)(c - 'a')).ToString();
+                encodedString += ((int)(c - 'a' + 1)).ToString();
             }
             return encodedString;
         }
